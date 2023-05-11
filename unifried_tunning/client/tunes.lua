@@ -1,7 +1,7 @@
 vehicleTunes = {}
 
-RegisterNetEvent("unifried_tunningt:client:tunes")
-AddEventHandler("unifried_tunningt:client:tunes", function(tuneTable)
+RegisterNetEvent("unifried_tunning:client:tunes")
+AddEventHandler("unifried_tunning:client:tunes", function(tuneTable)
     local tuneTable = json.decode(tuneTable)
 
     if (tuneTable ~= nil) then
