@@ -38,7 +38,7 @@ end
 
 RegisterCommand(Commands.Tune["Command"], function(source, args, rawCommand)
     local source = source
-    if (source > 0) then
+    if (source > 0) and (args[1] ~= nil and args[2] ~= 2) then
         local tuneParameter  = args[1]
         local valueParameter = tonumber(args[2])
         local validTuneNames = Commands.Tune["TuneNames"]
@@ -178,7 +178,7 @@ end, false)
 
 RegisterCommand(Commands.CheckTune["Command"], function(source, args, rawCommand)
     local source = source
-    if (source > 0) then
+    if (source > 0) and (args[1] ~= nil) then
         local validTuner = true
 
         local tuneParameter  = args[1]
