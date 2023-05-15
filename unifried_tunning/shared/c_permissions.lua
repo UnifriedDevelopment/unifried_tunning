@@ -1,7 +1,7 @@
 Permissions = {}
 
 -->> Enable or Disable ace permissions
-Permissions.Enable = true
+Permissions.Enable = false
 
 -->> Define the permissions needed for each upgrade ("" means no permission needed)
 Permissions.PermissionForUpgrade = {

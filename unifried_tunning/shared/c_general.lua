@@ -2,7 +2,7 @@ General = {}
 
 General.Framework = "STANDALONE" -->> STANDALONE || ESX || QBCORE
 General.Network   = true         -->> Should sounds and flames be networked
-General.Debug     = false        -->> Enables Debug Prints
+General.Debug     = false       -->> Enables Debug Prints
 
 General.ModReferences = {
     ["Exhaust"] = 4,

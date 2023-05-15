@@ -82,16 +82,8 @@ FlameHandler = function(functionData)
 
         local flameSize = CalculateFlame(flameData)
 
-        if (General.Debug) then
-            print("Flame Generator: Size [" .. flameSize .. "] & Bone [" .. vehicleBone .. "]")
-        end
-
         if (flameSize > Particle.Parameters["SmallFlame"]) then
             local largeParticle = 1
-
-            if (General.Debug) then
-                print("Flame size corresponds to large flame")
-            end
 
             if (Particle.LargeListSize > 1) then
                 largeParticle = math.random(1, Particle.LargeListSize)
@@ -111,10 +103,6 @@ FlameHandler = function(functionData)
         elseif (flameSize > Particle.Parameters["JustSound"]) then
             local smallParticle = 1
 
-            if (General.Debug) then
-                print("Flame Size corresponds to small flame")
-            end
-
             if (Particle.SmallListSize > 1) then
                 smallParticle = math.random(1, Particle.SmallListSize)
             end
@@ -131,10 +119,6 @@ FlameHandler = function(functionData)
             
             setPressure = true
         elseif (flameSize > Particle.Parameters["NoAction"]) then
-             if (General.Debug) then
-                 print("Flame Size too small for action.")
-             end
-
             if Sound.SoundPerFlame then
                 PlayBackfire({["Vehicle"] = targetVehicle})
             else

@@ -1,4 +1,6 @@
 Citizen.CreateThread(function()
+    TriggerServerEvent("unifried_tunning:server:connection")
+
     while true do
         local playerPed      = PlayerPedId()
         local vehiclePlate   = nil

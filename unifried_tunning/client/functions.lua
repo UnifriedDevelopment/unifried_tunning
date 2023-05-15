@@ -33,7 +33,7 @@ VehicleHandler = function(currentVehicle, vehiclePlate, vehicleModel)
 
     if ((logicControlPressed) and (logicTwoStepEnabled == false)) then
         if (General.Debug) then
-            print(Messages.Error["5"])
+            print(print(Messages.Error["5"]))
         end
 
         return waitTimer
@@ -41,13 +41,13 @@ VehicleHandler = function(currentVehicle, vehiclePlate, vehicleModel)
 
     if (General.UseStaticMinimumRPM and (engineRPM < General.StaticMinimumRPM)) then
         if (General.Debug) then
-            print(Messages.Error["6"])
+            print(print(Messages.Error["6"]))
         end
 
         return waitTimer
     elseif (General.UseStaticMinimumRPM ~= true and (math.random(General.DynamicMinimumRPM["Minimum"], General.DynamicMinimumRPM["Maximum"]) / 100)) then
         if (General.Debug) then
-            print(Messages.Error["6"])
+            print(print(Messages.Error["6"]))
         end
 
         return waitTimer

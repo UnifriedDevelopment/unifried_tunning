@@ -38,7 +38,7 @@ end
 
 RegisterCommand(Commands.Tune["Command"], function(source, args, rawCommand)
     local source = source
-    if (source > 0) and (args[1] ~= nil and args[2] ~= 2) then
+    if (source > 0) then
         local tuneParameter  = args[1]
         local valueParameter = tonumber(args[2])
         local validTuneNames = Commands.Tune["TuneNames"]
@@ -178,7 +178,7 @@ end, false)
 
 RegisterCommand(Commands.CheckTune["Command"], function(source, args, rawCommand)
     local source = source
-    if (source > 0) and (args[1] ~= nil) then
+    if (source > 0) then
         local validTuner = true
 
         local tuneParameter  = args[1]
@@ -210,7 +210,7 @@ RegisterCommand(Commands.CheckTune["Command"], function(source, args, rawCommand
             TriggerClientEvent("unifried_tunning:client:notify", source, Messages.Notify["MufflerTune"], tune)
         elseif (tuneParameter == validTuneNames["TwoStep"]) then
             local tune = tuneTable["TwoStep"]
-            TriggerClientEvent("unifried_tunning:client:notify", source, Messages.Notify["TwoStep"], tune)
+            TriggerClientEvent("unifried_tunning:client:notify", source, Messages.Notify["TwoStepTune"], tune)
         elseif (tuneParameter == validTuneNames["Antilag"]) then
             local tune = tuneTable["Antilag"]
             TriggerClientEvent("unifried_tunning:client:notify", source, Messages.Notify["AntilagTune"], tune)
@@ -223,6 +223,14 @@ RegisterCommand(Commands.CheckTune["Command"], function(source, args, rawCommand
     end
 end, false)
 
+RegisterServerEvent("unifried_tunning:server:connection")
+AddEventHandler("unifried_tunning:server:connection", function()
+    if (source < 0) then
+        return
+    end
+
+    TriggerClientEvent("unifried_tunning:client:tunes", -1, sentData)
+end)
 
 Citizen.CreateThread(function()
     ReadData()
