@@ -225,7 +225,7 @@ end, false)
 
 RegisterServerEvent("unifried_tunning:server:connection")
 AddEventHandler("unifried_tunning:server:connection", function()
-    if (source < 0) then
+    if (source > 0) then
         return
     end
 
